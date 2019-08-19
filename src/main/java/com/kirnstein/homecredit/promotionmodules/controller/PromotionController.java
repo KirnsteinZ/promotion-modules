@@ -23,20 +23,20 @@ import com.kirnstein.homecredit.promotionmodules.repo.UserRepository;
 @RestController
 public class PromotionController {
 
-	@Autowired UserRepository userRepo;
-	@Autowired PromotionalGroupRepository pgRepo;
-	@Autowired ModuleRelationRepository mrRepo;
+	@Autowired UserRepository userRepository;
+	@Autowired PromotionalGroupRepository pgRepository;
+	@Autowired ModuleRelationRepository mrRepository;
 	
 	@GetMapping("/modules")
 	public ResponseEntity<Map<String,ArrayList<ModuleResponse>>> getModuleByUser(@RequestParam Long userId){
-		Optional<User> userResult = userRepo.findById(userId);
+		Optional<User> userResult = userRepository.findById(userId);
 		Map<String,ArrayList<ModuleResponse>> result = new HashMap<>();
 		result.put("modules", new ArrayList<>());
 		if(userResult.isPresent()) {
 			long pgId = userResult.get().getPromotionGroup().getPromotionGroupId();
-			Optional<PromotionGroup> pgResult = pgRepo.findById(pgId);
+			Optional<PromotionGroup> pgResult = pgRepository.findById(pgId);
 			if(pgResult.isPresent()) {
-				ArrayList<ModuleRelation> fr = mrRepo.findByIdPromotionGroupPromotionGroupIdOrderByIdSequenceAsc(pgId);
+				ArrayList<ModuleRelation> fr = mrRepository.findByIdPromotionGroupPromotionGroupIdOrderByIdSequenceAsc(pgId);
 				ArrayList<ModuleResponse> list = new ArrayList<ModuleResponse>();
 				for (ModuleRelation mr : fr) {
 					list.add(new ModuleResponse(mr.getModule().getModuleName(), mr.getId().getSequence()));

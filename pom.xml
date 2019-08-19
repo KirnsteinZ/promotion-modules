@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.kirnstein.homecredit</groupId>
 	<artifactId>promotion-modules</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>promotion-modules</name>
 	<description>Demo project for Spring Boot</description>
 

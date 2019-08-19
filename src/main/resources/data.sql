@@ -1,24 +1,3 @@
---CREATE IF NOT EXIST TABLE USER ( 
---	user_id BIGINT NOT NULL, 
---	pg_id BIGINT NOT NULL 
---);
---
---CREATE IF NOT EXIST TABLE MODULE ( 
---	module_id BIGINT NOT NULL, 
---	module_name VARCHAR(255) NOT NULL 
---);
---
---CREATE IF NOT EXIST TABLE PROMOTION_GROUP ( 
---	pg_id BIGINT NOT NULL, 
---	fm_id BIGINT NOT NULL 
---);
---
---CREATE IF NOT EXIST TABLE MODULE_RELATION ( 
---	pg_id BIGINT NOT NULL, 
---	nm_id BIGINT NOT NULL,
---	first BOOLEAN NOT NULL
---);
-
 insert into MODULE (module_id,module_name) values
 (1,'PromoCard'),
 (2,'CategoryCard'),
